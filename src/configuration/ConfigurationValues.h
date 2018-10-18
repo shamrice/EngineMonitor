@@ -8,6 +8,7 @@
 
 namespace ConfigurationValues {
 
+    const int NUM_SENSORS = 1;
     const int TEMP_SENSOR_INPUT_PIN = 22;
 }
 

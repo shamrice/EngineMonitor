@@ -110,7 +110,7 @@ LCPP_FILES := $(wildcard $(LIBRARYPATH)/*/*.cpp)
 TC_FILES := $(wildcard $(COREPATH)/*.c)
 TCPP_FILES := $(wildcard $(COREPATH)/*.cpp)
 C_FILES := $(wildcard src/*/*.c) $(wildcard src/*.c)
-CPP_FILES := $(wildcard src/*/*.cpp) $(wildcard src/*.cpp)
+CPP_FILES := $(wildcard src/*/*.cpp) $(wildcard src/*.cpp) $(wildcard src/*/*/*.cpp)
 INO_FILES := $(wildcard src/*.ino)
 
 # include paths for libraries

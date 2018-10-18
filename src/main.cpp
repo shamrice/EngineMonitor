@@ -12,13 +12,17 @@ extern "C" int main(void)
 
 	config.getSensorManager().refreshSensorValues();
 	
-
 	pinMode(13, OUTPUT);
 	while (1) {
-		digitalWriteFast(13, HIGH);
-		delay(config.getPinForSensor());
-		digitalWriteFast(13, LOW);
-		delay(config.getSensorManager().getSensorValue(SensorType::TEMPERATURE));
+		int tempSensorValue = config.getSensorManager().getSensorValue(SensorType::TEMPERATURE);
+		int oilSensorValue = config.getSensorManager().getSensorValue(SensorType::OIL_PRESSURE);
+
+		if (tempSensorValue > 0 && oilSensorValue > 0) {
+			digitalWriteFast(13, HIGH);
+			delay(tempSensorValue);
+			digitalWriteFast(13, LOW);
+			delay(oilSensorValue);
+		}
 	}
 
 

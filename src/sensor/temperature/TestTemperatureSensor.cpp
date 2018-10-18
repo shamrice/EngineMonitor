@@ -1,7 +1,7 @@
 #include "TestTemperatureSensor.h"
 
 float TestTemperatureSensor::getValue() {
-    return 255.32;
+    return 100.32;
 }
 
 

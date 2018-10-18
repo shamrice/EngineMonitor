@@ -4,15 +4,22 @@
 #include "types/SensorType.h"
 #include "SensorInput.h"
 
+#include <memory>
+#include <array>
+
+const int MAX_SENSORS = 200;
+
 class SensorManager {
 
     public:
-        void addSensor(SensorType sensorType, SensorInput* sensorInput);
-        float getSensorValue(SensorType sensorType);
+        SensorManager();
+        ~SensorManager();
+        void addSensor(std::shared_ptr<SensorInput> sensorInput);
         void refreshSensorValues();
+        float getSensorValue(SensorType sensorType);  
 
-    private:
-        //map of sensorType, SensorInput
+    private:    
+        std::array<std::shared_ptr<SensorInput>, MAX_SENSORS> sensorInputArray;
 };
 
 #endif
