@@ -4,7 +4,7 @@ Engine Monitor
 Project structure is using teensy-template (https://github.com/apmorton/teensy-template) as a base.
 Project is made using make instead of the Arduino IDE.
 
-Make Targets (from tempalte_readme.txt)
+Make Targets (from template_readme.txt)
 ------------
 
 - `make` alias for `make hex`
