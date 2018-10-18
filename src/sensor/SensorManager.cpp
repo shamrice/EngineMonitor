@@ -11,7 +11,6 @@ void SensorManager::addSensor(std::shared_ptr<SensorInput> sensorInput) {
             it->swap(sensorInput);
         }
     }
-
 }
 
 float SensorManager::getSensorValue(SensorType sensorType) {
@@ -27,4 +26,9 @@ float SensorManager::getSensorValue(SensorType sensorType) {
 
 void SensorManager::refreshSensorValues() {
 
+    for (auto it = sensorInputArray.begin(); it != sensorInputArray.end(); ++it) {
+        if (*it != nullptr) {
+            it->get()->refresh();
+        }
+    }
 }

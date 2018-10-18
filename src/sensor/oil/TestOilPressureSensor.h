@@ -6,10 +6,9 @@
 class TestOilPressureSensor : public SensorInput {
     
     public:
-        TestOilPressureSensor(SensorType type) : SensorInput(type) {};
+        TestOilPressureSensor(SensorType type, int pinNum) : SensorInput(type, pinNum) {};
         ~TestOilPressureSensor() { }; 
 
-        float getValue();
         void refresh();
 
 };

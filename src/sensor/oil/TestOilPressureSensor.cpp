@@ -1,10 +1,7 @@
 #include "TestOilPressureSensor.h"
 
-float TestOilPressureSensor::getValue() {
-    return 250;
-}
-
-
 void TestOilPressureSensor::refresh() {
-
+     if (value < 3000) {
+         value += 1;
+     }
 }

@@ -6,14 +6,20 @@
 class SensorInput {
 
     public:
-        SensorInput(SensorType type);
+        SensorInput(SensorType type, int pinNumber);
         virtual ~SensorInput() { };
         SensorType getSensorType();
-        virtual float getValue() = 0;
+        int getPin();
+        float getValue();
+        
         virtual void refresh() = 0;
+
+    protected:
+        float value = 0;
 
     private:
         SensorType sensorType;
+        int pin = 0;
 };
 
 #endif

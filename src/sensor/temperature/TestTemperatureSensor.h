@@ -6,10 +6,9 @@
 class TestTemperatureSensor : public SensorInput {
     
     public:
-        TestTemperatureSensor(SensorType type) : SensorInput(type) {};
+        TestTemperatureSensor(SensorType type, int pinNum) : SensorInput(type, pinNum) {};
         ~TestTemperatureSensor() { }; 
 
-        float getValue();
         void refresh();
 
 };

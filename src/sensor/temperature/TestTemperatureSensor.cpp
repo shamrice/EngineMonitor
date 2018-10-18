@@ -1,10 +1,7 @@
 #include "TestTemperatureSensor.h"
 
-float TestTemperatureSensor::getValue() {
-    return 100.32;
-}
-
-
 void TestTemperatureSensor::refresh() {
-
+    if (value < 3000) {
+        value += 2;
+    }
 }
