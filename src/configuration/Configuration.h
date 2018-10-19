@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "ConfigurationValues.h"
+#include "../logger/SerialLogger.h"
 #include "../display/MonitorDisplay.h"
 #include "../display/TestMonitorDisplay.h"
 #include "../sensor/SensorManager.h"

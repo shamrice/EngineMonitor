@@ -26,5 +26,8 @@ void MonitorCore::displaySensorValues() {
 		delay(oilSensorValue);
 	}
 
+    SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore", "Test log");
+   
+
     monitorDisplay->print(1, 1, "values", Color::GREEN);
 }
