@@ -3,7 +3,7 @@
 TestMonitorDisplay::TestMonitorDisplay() {
     tft.begin();  
     tft.clear();        
-    tft.setOrientation(ILI9225_HORIZONTAL_WINDOW_ADDR2);
+    tft.setOrientation(ILI9225_VERTICAL_WINDOW_ADDR2);
 
     currentLine = 1;
     /*
