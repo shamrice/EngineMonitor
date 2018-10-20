@@ -3,6 +3,7 @@
 
 #include "types/SensorType.h"
 #include "SensorInput.h"
+#include "../logger/SerialLogger.h"
 
 #include <memory>
 #include <array>
@@ -21,6 +22,7 @@ class SensorManager {
 
     private:    
         std::array<std::shared_ptr<SensorInput>, MAX_SENSORS> sensorInputArray;
+        const char* CLASS_NAME = "SensorManager";
 };
 
 #endif

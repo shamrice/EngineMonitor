@@ -3,7 +3,7 @@
 MonitorCore::MonitorCore() {
 
     sensorManager = configuration.getSensorManager();
-    monitorDisplay = configuration.getMonitorDisplay();
+   // monitorDisplay = MonitorDisplay::getInstance(); //configuration.getMonitorDisplay();
 
     //init i/o pins
     pinMode(ConfigurationValues::TEST_LED_OUTPUT_PIN, OUTPUT);
@@ -27,7 +27,25 @@ void MonitorCore::displaySensorValues() {
 	}
 
     SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore", "Test log");
-   
+/*
+    
+    char tempSensorValueStr[100];
+    sprintf(tempSensorValueStr, "%d", tempSensorValue);
 
-    monitorDisplay->print(1, 1, "values", Color::GREEN);
+    char oilSensorValueStr[100];
+    sprintf(oilSensorValueStr, "%d", oilSensorValue);
+
+    char text[255];
+    strcpy(text, "Temp: ");
+    strcat(text, tempSensorValueStr);
+    strcat(text, " :: Oil: ");
+    strcat(text, oilSensorValueStr);
+    strcat(text, " psi");
+
+    TestMonitorDisplay::getInstance().print(1, 1, text, Color::BLUE);
+    */
+
+   TestMonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
+
+    //monitorDisplay.print(1, 1, "values", Color::GREEN);
 }

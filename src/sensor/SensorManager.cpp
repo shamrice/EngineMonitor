@@ -8,7 +8,7 @@ bool SensorManager::addSensor(std::shared_ptr<SensorInput> sensorInput) {
     
     for (auto it = sensorInputArray.begin(); it != sensorInputArray.end(); ++it) {
         if (*it == nullptr) {
-            it->swap(sensorInput);
+            it->swap(sensorInput);            
             return true;
         }
     }
@@ -32,7 +32,7 @@ float SensorManager::getSensorValue(SensorType sensorType) {
 
     for (auto it = sensorInputArray.begin(); it != sensorInputArray.end(); ++it) {
         if (*it != nullptr && it->get()->getSensorType() == sensorType) {
-            return it->get()->getValue();
+            return it->get()->getValue();            
         }
     }
 
@@ -46,4 +46,6 @@ void SensorManager::refreshSensorValues() {
             it->get()->refresh();
         }
     }
+
+    SerialLogger::getInstance().log(LogLevel::INFO, CLASS_NAME, "Refreshed sensor values. ");
 }

@@ -17,7 +17,7 @@ Configuration::Configuration() {
     sensorManager.addSensor(oilPressureSensor);
     
     //create monitor display
-    monitorDisplay = std::make_shared<TestMonitorDisplay>();
+    //monitorDisplay = std::make_shared<TestMonitorDisplay>();
 
 }
 
@@ -33,10 +33,11 @@ int Configuration::getPinForSensor(SensorType sensorType) {
 
     return -1;
 }
-
+/*
 MonitorDisplay* Configuration::getMonitorDisplay() {
     return monitorDisplay.get();
 }
+*/
 
 SensorManager Configuration::getSensorManager() {
     return sensorManager;
