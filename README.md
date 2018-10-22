@@ -13,3 +13,8 @@ Make Targets (from template_readme.txt)
 - `make post_compile` opens the launcher with the correct file
 - `make upload` uploads the hex file to a teensy board
 - `make reboot` reboots the teensy
+
+Libraries Used: (under `libraries`)
+------------------------------------
+- `SPI` - http://www.arduino.cc/en/Reference/SPI
+- `TFT_22_ILI9225` - https://github.com/Nkawu/TFT_22_ILI9225
