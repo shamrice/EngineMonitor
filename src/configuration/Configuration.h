@@ -18,11 +18,9 @@ class Configuration {
         Configuration();
         int getPinForSensor(SensorType sensorType);        
         SensorManager getSensorManager();
-        //MonitorDisplay* getMonitorDisplay();
 
     private:
         SensorManager sensorManager;
-        //std::shared_ptr<MonitorDisplay> monitorDisplay;
 
 };
 

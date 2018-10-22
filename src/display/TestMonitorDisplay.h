@@ -17,7 +17,7 @@ class TestMonitorDisplay : public MonitorDisplay {
         void operator=(TestMonitorDisplay const&) = delete;
 
         void print(int x, int y, const char *text, Color color);
-        void printSensorScreen(int tempSensorValue, int oilSensorValue);
+        void printSensorScreen(float tempSensorValue, float oilSensorValue);
 
     private:
         TestMonitorDisplay();

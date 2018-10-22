@@ -3,32 +3,21 @@
 TestMonitorDisplay::TestMonitorDisplay() {
     tft.begin();  
     tft.clear();        
-    tft.setOrientation(ILI9225_VERTICAL_WINDOW_ADDR2);
+    tft.setOrientation(ILI9225_VERTICAL_WINDOW_ADDR2);    
+    tft.setBacklightBrightness(TFT_BRIGHTNESS);
 
     currentLine = 1;
-    /*
-  tft.begin();  
-  tft.fillScreen(COLOR_BLACK);
-  tft.setTextColor(COLOR_YELLOW);
-  tft.setTextSize(2);
-  tft.println("Hey Phil I gotit working in the Clock C++ project       already...");   
-  tft.setTextColor(COLOR_GREEN);
-  tft.println("   :D");
-  tft.setTextSize(1);
-  tft.println("");
-  tft.setTextColor(COLOR_RED);
-  tft.println("And it's easy to work with!");
-  */
-  
 }
 
-void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorValue) {
+void TestMonitorDisplay::printSensorScreen(float tempSensorValue, float oilSensorValue) {
     
+    //tft.setBacklightBrightness(tempSensorValue);
+
     char tempSensorValueStr[100];
-    sprintf(tempSensorValueStr, "%d", tempSensorValue);
+    sprintf(tempSensorValueStr, "%.0f   ", tempSensorValue);
 
     char oilSensorValueStr[100];
-    sprintf(oilSensorValueStr, "%d", oilSensorValue);
+    sprintf(oilSensorValueStr, "%.0f   ", oilSensorValue);
 
     char text[255];
     strcpy(text, "Temp: ");
@@ -63,12 +52,6 @@ void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorVal
         tft.drawText(20, 100, oilText, COLOR_RED);
     }
 
-/*
-    strcat(text, tempSensorValueStr);
-    strcat(text, " :: Oil: ");
-    strcat(text, oilSensorValueStr);
-    strcat(text, " psi");
-    */
 }
 
 void TestMonitorDisplay::print(int x, int y, const char *text, Color color) {

@@ -20,11 +20,12 @@
 #define TFT_SDI 11  // MOSI
 #define TFT_CLK 13  // SCK
 #define TFT_LED 3   // 0 if wired to +5V directly
-#define TFT_BRIGHTNESS 200 // Initial brightness of TFT backlight (optional)
+#define TFT_BRIGHTNESS 1 // Initial brightness of TFT backlight (optional)
 
 class MonitorDisplay {
 
     public:
+        virtual void printSensorScreen(float tempSensorValue, float oilSensorValue);
         virtual void print(int x, int y, const char *text, Color color);
 
 };
