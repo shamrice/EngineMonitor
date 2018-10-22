@@ -19,6 +19,6 @@ void ApplicationServices::run() {
         monitorCore.refreshSensorValues();              
 
         refreshFrame++;
-        delay(100);  
+        //delay(100);  
     }
 }
