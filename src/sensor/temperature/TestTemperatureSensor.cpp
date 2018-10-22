@@ -3,8 +3,15 @@
 void TestTemperatureSensor::refresh() {
     
     int rawValue = analogRead(pin);
-    value += rawValue / 10; 
-    refreshCount++;
+
+    if (value < MAX_VALUE_SUM) {
+        value += rawValue / 10; 
+        refreshCount++;
+    } else {
+        //to prevent value overflow if sensor value is not pulled for some reason.
+        value = rawValue / 10;
+        refreshCount = 1;
+    }
 
     String logMessage = "Refreshing temp sensor with raw value of: ";
     logMessage += rawValue;

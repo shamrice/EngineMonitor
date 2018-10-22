@@ -5,6 +5,8 @@
 #include "../logger/SerialLogger.h"
 #include "types/SensorType.h"
 
+const int MAX_VALUE_SUM = 1000000;
+
 class SensorInput {
 
     public:
