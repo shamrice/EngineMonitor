@@ -17,6 +17,10 @@ Configuration::Configuration() {
     sensorManager.addSensor(oilPressureSensor);
 }
 
+int Configuration::getSensorValueRefreshFrequency() {
+    return ConfigurationValues::SENSOR_VALUE_REFRESH_FREQUENCY;
+}
+
 int Configuration::getPinForSensor(SensorType sensorType) {
 
     switch (sensorType) {

@@ -9,7 +9,8 @@ class ApplicationServices {
         ApplicationServices();
         void run();
 
-    private:
+    private:    
+        Configuration configuration;
         MonitorCore &monitorCore = MonitorCore::getInstance();        
 
 };

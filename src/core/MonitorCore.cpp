@@ -49,5 +49,4 @@ void MonitorCore::displaySensorValues() {
 
     //monitorDisplay.print(1, 1, "values", Color::GREEN);
 
-    delay(100);
 }

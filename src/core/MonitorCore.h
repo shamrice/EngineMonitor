@@ -22,7 +22,6 @@ class MonitorCore {
     private:
         MonitorCore();
         SensorManager sensorManager;
-       // MonitorDisplay monitorDisplay;
         Configuration configuration;
     
 
