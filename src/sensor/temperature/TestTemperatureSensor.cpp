@@ -3,7 +3,7 @@
 void TestTemperatureSensor::refresh() {
     
     int rawValue = analogRead(pin);
-    value += rawValue; 
+    value += rawValue / 10; 
     refreshCount++;
 
     String logMessage = "Refreshing temp sensor with raw value of: ";

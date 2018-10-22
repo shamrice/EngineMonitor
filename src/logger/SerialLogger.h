@@ -20,11 +20,13 @@ class SerialLogger {
         SerialLogger(SerialLogger const&) = delete;
         void operator=(SerialLogger const&) = delete;
 
+        void setEnabled(bool enabled);
         void log(LogLevel level, String message);
         void log(LogLevel level, String source, String message);
 
     private:
         SerialLogger();
+        bool isEnabled = false;
         String getLogLevelString(LogLevel level);
 };
 

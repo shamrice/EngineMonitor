@@ -14,6 +14,8 @@ void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorVal
     tft.setFont(Terminal12x16);
     
     // draw water temperature
+    tempSensorValue *= 3;
+
     String tempSensorValueStr = tempSensorValue;
     tempSensorValueStr += " degrees    ";
 
@@ -23,8 +25,8 @@ void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorVal
     // TODO : refactor this section.    
     unsigned short color = COLOR_BLUE;
     int minThreshold = 180;
-    int midThreshold = 210;
-    int maxThreshold = 250;
+    int midThreshold = 230;
+    int maxThreshold = 260;
 
     int yVal = tempSensorValue / 2;
     if (yVal > 180) {

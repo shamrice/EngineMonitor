@@ -6,6 +6,7 @@ ApplicationServices::ApplicationServices() {
 
 void ApplicationServices::run() {
     
+    monitorCore.displaySensorValues();      
     int refreshFrame = 0;
 
     while (true) {
@@ -19,6 +20,6 @@ void ApplicationServices::run() {
         monitorCore.refreshSensorValues();              
 
         refreshFrame++;
-        //delay(100);  
+        //delay(10);  
     }
 }

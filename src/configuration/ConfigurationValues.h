@@ -8,13 +8,14 @@
 
 namespace ConfigurationValues {
 
+    const bool IS_SERIAL_LOGS_ENABLED = true;
+
     const int NUM_SENSORS = 2;
     const int TEST_LED_OUTPUT_PIN = 13;
     const int TEMP_SENSOR_INPUT_PIN = 0;
     const int OIL_PRESSURE_SENSOR_INPUT_PIN = 23;
 
-    const int DISPLAY_REFRESH_FREQUENCY = 20;
-    const int SENSOR_VALUE_SAMPLE_SIZE = 10;
+    const int DISPLAY_REFRESH_FREQUENCY = 500;
 }
 
 #endif

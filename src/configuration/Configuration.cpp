@@ -1,6 +1,9 @@
 #include "Configuration.h"
 
 Configuration::Configuration() {
+
+    //enable serial logger if enabled    
+    SerialLogger::getInstance().setEnabled(ConfigurationValues::IS_SERIAL_LOGS_ENABLED);    
     
     //set up sensor manager
     std::shared_ptr<SensorInput> tempSensor = std::make_shared<TestTemperatureSensor>(
@@ -15,10 +18,6 @@ Configuration::Configuration() {
 
     sensorManager.addSensor(tempSensor);
     sensorManager.addSensor(oilPressureSensor);
-}
-
-int Configuration::getSensorValueSampleSize() {
-    return ConfigurationValues::SENSOR_VALUE_SAMPLE_SIZE;
 }
 
 int Configuration::getDisplayRefreshFrequency() {

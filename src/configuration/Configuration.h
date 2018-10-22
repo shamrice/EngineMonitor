@@ -17,7 +17,6 @@ class Configuration {
     public:
         Configuration();
         int getDisplayRefreshFrequency();
-        int getSensorValueSampleSize();
         int getPinForSensor(SensorType sensorType);        
         SensorManager getSensorManager();
 

@@ -1,15 +1,26 @@
 #include "SerialLogger.h"
 
 SerialLogger::SerialLogger() {
-    Serial.begin(9600);
+    //Serial.begin(9600);
+}
+
+void SerialLogger::setEnabled(bool enabled) {
+    isEnabled = enabled;
+    if (isEnabled) {
+        Serial.begin(9600);
+    } 
 }
 
 void SerialLogger::log(LogLevel level, String source, String message) {
-    Serial.printf("%s :: %s :: %s\n", getLogLevelString(level).c_str(), source.c_str(), message.c_str());
+    if (isEnabled) {
+        Serial.printf("%s :: %s :: %s\n", getLogLevelString(level).c_str(), source.c_str(), message.c_str());
+    }
 }
 
 void SerialLogger::log(LogLevel level, String message) {
-    Serial.printf("%s :: %s\n", getLogLevelString(level).c_str(), message.c_str());
+    if (isEnabled) {
+        Serial.printf("%s :: %s\n", getLogLevelString(level).c_str(), message.c_str());
+    }
 
 }
 
