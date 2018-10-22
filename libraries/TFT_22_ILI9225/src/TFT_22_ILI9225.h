@@ -289,10 +289,10 @@ class TFT_22_ILI9225 {
         /// Draw triangle, triangle coordinates
         /// @param    x1 corner 1 coordinate, x-axis
         /// @param    y1 corner 1 coordinate, y-axis
-        /// @param    x2 corner 2 coordinate, x-axisa53
-        /// @param    y2 corner 2 coordinate, y-axisa53
-        /// @param    x3 corner 3 coordinate, x-axisa53
-        /// @param    y3 corner 3 coordinate, y-axisa53
+        /// @param    x2 corner 2 coordinate, x-axis
+        /// @param    y2 corner 2 coordinate, y-axis
+        /// @param    x3 corner 3 coordinate, x-axis
+        /// @param    y3 corner 3 coordinate, y-axis
         /// @param    color 16-bit color
         void drawTriangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, uint16_t color); 
 
