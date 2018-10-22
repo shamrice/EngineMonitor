@@ -5,7 +5,7 @@ Configuration::Configuration() {
     //set up sensor manager
     std::shared_ptr<SensorInput> tempSensor = std::make_shared<TestTemperatureSensor>(
         SensorType::TEMPERATURE, 
-        ConfigurationValues::TEMP_SENSOR_INPUT_PIN        
+        ConfigurationValues::TEMP_SENSOR_INPUT_PIN      
     );
 
     std::shared_ptr<SensorInput> oilPressureSensor = std::make_shared<TestOilPressureSensor>(
@@ -17,8 +17,12 @@ Configuration::Configuration() {
     sensorManager.addSensor(oilPressureSensor);
 }
 
-int Configuration::getSensorValueRefreshFrequency() {
-    return ConfigurationValues::SENSOR_VALUE_REFRESH_FREQUENCY;
+int Configuration::getSensorValueSampleSize() {
+    return ConfigurationValues::SENSOR_VALUE_SAMPLE_SIZE;
+}
+
+int Configuration::getDisplayRefreshFrequency() {
+    return ConfigurationValues::DISPLAY_REFRESH_FREQUENCY;
 }
 
 int Configuration::getPinForSensor(SensorType sensorType) {

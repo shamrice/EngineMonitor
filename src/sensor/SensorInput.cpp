@@ -10,7 +10,10 @@ SensorType SensorInput::getSensorType() {
 }
 
 int SensorInput::getValue() {
-    return value;
+    int returnVal = value / refreshCount;
+    refreshCount = 0;
+    value = 0;
+    return returnVal;    
 }
 
 int SensorInput::getPin() {

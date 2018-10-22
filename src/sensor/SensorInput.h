@@ -19,6 +19,7 @@ class SensorInput {
     protected:
         int value = 0;
         int pin = 0;
+        int refreshCount = 0;
 
     private:
         SensorType sensorType;        

@@ -10,13 +10,13 @@ void ApplicationServices::run() {
 
     while (true) {
 
-        //manage how often sensor values are polled for refrsh.
-        if (refreshFrame > configuration.getSensorValueRefreshFrequency()) {            
-            monitorCore.refreshSensorValues();
+        //manage how often display is drawn for refrsh.
+        if (refreshFrame > configuration.getDisplayRefreshFrequency()) {                        
+            monitorCore.displaySensorValues();      
             refreshFrame = 0;
         }
 
-        monitorCore.displaySensorValues();      
+        monitorCore.refreshSensorValues();              
 
         refreshFrame++;
         delay(100);  
