@@ -1,6 +1,6 @@
-#include "TestMonitorDisplay.h"
+#include "TFT_ILI9225_MonitorDisplay.h"
 
-TestMonitorDisplay::TestMonitorDisplay() {
+TFT_ILI9225_MonitorDisplay::TFT_ILI9225_MonitorDisplay() {
     tft.begin();  
     tft.clear();        
     tft.setOrientation(ILI9225_VERTICAL_WINDOW_ADDR2);    
@@ -9,7 +9,7 @@ TestMonitorDisplay::TestMonitorDisplay() {
     currentLine = 1;
 }
 
-void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorValue) {
+void TFT_ILI9225_MonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorValue) {
     
     tft.setFont(Terminal12x16);
     
@@ -81,7 +81,7 @@ void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorVal
 
 }
 
-void TestMonitorDisplay::print(int x, int y, const char *text, Color color) {
+void TFT_ILI9225_MonitorDisplay::print(int x, int y, const char *text, Color color) {
     currentLine += 10;
     if (currentLine >= 200) {
         currentLine = 1;

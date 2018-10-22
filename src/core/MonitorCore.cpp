@@ -15,11 +15,11 @@ void MonitorCore::refreshSensorValues() {
 
 void MonitorCore::displaySensorValues() {
     SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore", "Displaying sensor values to screen.");
-    
+
     int tempSensorValue = sensorManager.getSensorValue(SensorType::TEMPERATURE);
 	int oilSensorValue = sensorManager.getSensorValue(SensorType::OIL_PRESSURE);
     
-    TestMonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
+    TFT_ILI9225_MonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
 
 
 }

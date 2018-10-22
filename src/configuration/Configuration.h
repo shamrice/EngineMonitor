@@ -6,7 +6,7 @@
 #include "ConfigurationValues.h"
 #include "../logger/SerialLogger.h"
 #include "../display/MonitorDisplay.h"
-#include "../display/TestMonitorDisplay.h"
+#include "../display/TFT_ILI9225_MonitorDisplay.h"
 #include "../sensor/SensorManager.h"
 #include "../sensor/types/SensorType.h"
 #include "../sensor/temperature/TestTemperatureSensor.h"
