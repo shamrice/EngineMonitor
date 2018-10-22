@@ -20,12 +20,12 @@ class SerialLogger {
         SerialLogger(SerialLogger const&) = delete;
         void operator=(SerialLogger const&) = delete;
 
-        void log(LogLevel level, const char* message);
-        void log(LogLevel level, const char* source, const char* message);
+        void log(LogLevel level, String message);
+        void log(LogLevel level, String source, String message);
 
     private:
         SerialLogger();
-        const char* getLogLevelString(LogLevel level);
+        String getLogLevelString(LogLevel level);
 };
 
 #endif

@@ -4,16 +4,16 @@ SerialLogger::SerialLogger() {
     Serial.begin(9600);
 }
 
-void SerialLogger::log(LogLevel level, const char* source, const char* message) {
-    Serial.printf("%s :: %s :: %s\n", getLogLevelString(level), source, message);
+void SerialLogger::log(LogLevel level, String source, String message) {
+    Serial.printf("%s :: %s :: %s\n", getLogLevelString(level).c_str(), source.c_str(), message.c_str());
 }
 
-void SerialLogger::log(LogLevel level, const char* message) {
-    Serial.printf("%s :: %s\n", getLogLevelString(level), message);
+void SerialLogger::log(LogLevel level, String message) {
+    Serial.printf("%s :: %s\n", getLogLevelString(level).c_str(), message.c_str());
 
 }
 
-const char* SerialLogger::getLogLevelString(LogLevel level) {
+String SerialLogger::getLogLevelString(LogLevel level) {
     switch (level) {
         case LogLevel::DEBUG:
             return "DEBUG";

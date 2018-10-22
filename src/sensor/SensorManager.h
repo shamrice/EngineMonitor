@@ -18,7 +18,7 @@ class SensorManager {
         bool addSensor(std::shared_ptr<SensorInput> sensorInput);
         bool removeSensor(SensorType sensorType);
         void refreshSensorValues();
-        float getSensorValue(SensorType sensorType);  
+        int getSensorValue(SensorType sensorType);  
 
     private:    
         std::array<std::shared_ptr<SensorInput>, MAX_SENSORS> sensorInputArray;

@@ -11,7 +11,7 @@ void ApplicationServices::run() {
     while (true) {
 
         //manage how often sensor values are polled for refrsh.
-        if (refreshFrame > configuration.getSensorValueRefreshFrequency()) {
+        if (refreshFrame > configuration.getSensorValueRefreshFrequency()) {            
             monitorCore.refreshSensorValues();
             refreshFrame = 0;
         }

@@ -9,7 +9,7 @@ SensorType SensorInput::getSensorType() {
     return sensorType;
 }
 
-float SensorInput::getValue() {
+int SensorInput::getValue() {
     return value;
 }
 

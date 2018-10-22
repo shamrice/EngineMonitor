@@ -25,7 +25,7 @@
 class MonitorDisplay {
 
     public:
-        virtual void printSensorScreen(float tempSensorValue, float oilSensorValue);
+        virtual void printSensorScreen(int tempSensorValue, int oilSensorValue);
         virtual void print(int x, int y, const char *text, Color color);
 
 };

@@ -28,7 +28,7 @@ bool SensorManager::removeSensor(SensorType sensorType) {
     return false;
 }
 
-float SensorManager::getSensorValue(SensorType sensorType) {
+int SensorManager::getSensorValue(SensorType sensorType) {
 
     for (auto it = sensorInputArray.begin(); it != sensorInputArray.end(); ++it) {
         if (*it != nullptr && it->get()->getSensorType() == sensorType) {
@@ -47,5 +47,5 @@ void SensorManager::refreshSensorValues() {
         }
     }
 
-    SerialLogger::getInstance().log(LogLevel::INFO, CLASS_NAME, "Refreshed sensor values. ");
+    //SerialLogger::getInstance().log(LogLevel::INFO, CLASS_NAME, "Refreshed sensor values. ");
 }

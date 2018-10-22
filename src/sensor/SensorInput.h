@@ -12,12 +12,12 @@ class SensorInput {
         virtual ~SensorInput() { };
         SensorType getSensorType();
         int getPin();
-        float getValue();
+        int getValue();
         
         virtual void refresh() = 0;
 
     protected:
-        float value = 0;
+        int value = 0;
         int pin = 0;
 
     private:

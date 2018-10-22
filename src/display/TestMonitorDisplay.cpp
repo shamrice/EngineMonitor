@@ -9,48 +9,41 @@ TestMonitorDisplay::TestMonitorDisplay() {
     currentLine = 1;
 }
 
-void TestMonitorDisplay::printSensorScreen(float tempSensorValue, float oilSensorValue) {
+void TestMonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorValue) {
     
-    //tft.setBacklightBrightness(tempSensorValue);
-
-    char tempSensorValueStr[100];
-    sprintf(tempSensorValueStr, "%.0f   ", tempSensorValue);
-
-    char oilSensorValueStr[100];
-    sprintf(oilSensorValueStr, "%.0f   ", oilSensorValue);
-
-    char text[255];
-    strcpy(text, "Temp: ");
-    strcat(text, tempSensorValueStr);
-
     tft.setFont(Terminal12x16);
-    tft.drawRectangle(10, 10, 160, 50, COLOR_BLUE);
     
-    if (tempSensorValue < 210) {
-        tft.drawText(20, 20, text, COLOR_GREEN);
+    // draw water temperature
+    String tempSensorValueStr = tempSensorValue;
+    tempSensorValueStr += " degrees    ";
+
+    tft.drawRectangle(10, 10, 200, 60, COLOR_BLUE);
+    tft.drawText(20, 20, "Temperature", COLOR_WHITE);
+    
+    if (tempSensorValue < 180) {
+        tft.drawText(20, 40, tempSensorValueStr, COLOR_BLUE);
+    } else if (  tempSensorValue >= 180 && tempSensorValue < 210) {
+        tft.drawText(20, 40, tempSensorValueStr, COLOR_GREEN);
     } else if (tempSensorValue >= 210 && tempSensorValue < 250) {
-        tft.drawText(20, 20, text, COLOR_YELLOW);
+        tft.drawText(20, 40, tempSensorValueStr, COLOR_YELLOW);
     } else {
-        tft.drawText(20, 20, text, COLOR_RED);
+        tft.drawText(20, 40, tempSensorValueStr, COLOR_RED);
     }
 
-    char oilText[255];    
-    strcpy(oilText, oilSensorValueStr);
-    strcat(oilText, " psi");
+    // draw oil pressure 
+    String oilSensorValueStr = oilSensorValue;
+    oilSensorValueStr += " psi        ";
 
-    //tft.setFont(Terminal6x8);
-    tft.setFont(Terminal12x16);
-    tft.drawRectangle(10, 60, 160, 130, COLOR_GRAY);
-    
+    tft.drawRectangle(10, 100, 200, 140, COLOR_GRAY);
     tft.drawText(20, 80, "Oil Pressure", COLOR_WHITE);
 
     if (oilSensorValue < 80) {
-        tft.drawText(20, 100, oilText, COLOR_GREEN);
+        tft.drawText(20, 110, oilSensorValueStr, COLOR_GREEN);
     } else if (oilSensorValue >= 80 && oilSensorValue < 120) {
-        tft.drawText(20, 100, oilText, COLOR_YELLOW);
+        tft.drawText(20, 110, oilSensorValueStr, COLOR_YELLOW);
     } else {
-        tft.drawText(20, 100, oilText, COLOR_RED);
-    }
+        tft.drawText(20, 110, oilSensorValueStr, COLOR_RED);
+    }  
 
 }
 
