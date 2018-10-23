@@ -7,7 +7,17 @@ MonitorCore::MonitorCore() {
     //init i/o pins
     pinMode(ConfigurationValues::TEST_LED_OUTPUT_PIN, OUTPUT);
     pinMode(configuration.getPinForSensor(SensorType::OIL_PRESSURE), INPUT);
-    pinMode(configuration.getPinForSensor(SensorType::TEMPERATURE), INPUT);    }
+    pinMode(configuration.getPinForSensor(SensorType::TEMPERATURE), INPUT);    
+
+    /* test boot up screen */
+    /*
+    TFT_ILI9225_MonitorDisplay::getInstance().drawBitmapScreen();
+    TFT_ILI9225_MonitorDisplay::getInstance().drawWelcomeText();
+    delay(1500);
+    TFT_ILI9225_MonitorDisplay::getInstance().clearScreen();
+    TFT_ILI9225_MonitorDisplay::getInstance().drawBitmapScreen();
+    */
+}
 
 void MonitorCore::refreshSensorValues() {
     sensorManager.refreshSensorValues();

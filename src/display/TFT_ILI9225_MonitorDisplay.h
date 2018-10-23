@@ -16,8 +16,11 @@ class TFT_ILI9225_MonitorDisplay : public MonitorDisplay {
         TFT_ILI9225_MonitorDisplay(TFT_ILI9225_MonitorDisplay const&) = delete;
         void operator=(TFT_ILI9225_MonitorDisplay const&) = delete;
 
+        void clearScreen();
         void print(int x, int y, const char *text, Color color);
         void printSensorScreen(int tempSensorValue, int oilSensorValue);
+        void drawBitmapScreen();
+        void drawWelcomeText();
 
     private:
         TFT_ILI9225_MonitorDisplay();

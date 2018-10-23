@@ -1,17 +1,22 @@
 #include "TFT_ILI9225_MonitorDisplay.h"
 
 TFT_ILI9225_MonitorDisplay::TFT_ILI9225_MonitorDisplay() {
-    tft.begin();  
-    tft.clear();        
+    tft.begin();         
     tft.setOrientation(ILI9225_VERTICAL_WINDOW_ADDR2);    
     tft.setBacklightBrightness(TFT_BRIGHTNESS);
+    tft.clear();     
 
     currentLine = 1;
+}
+
+void TFT_ILI9225_MonitorDisplay::clearScreen() {
+    tft.clear();
 }
 
 void TFT_ILI9225_MonitorDisplay::printSensorScreen(int tempSensorValue, int oilSensorValue) {
     
     tft.setFont(Terminal12x16);
+    tft.setBackgroundColor(COLOR_BLACK);
     
     // draw water temperature
     tempSensorValue *= 3;
@@ -90,3 +95,52 @@ void TFT_ILI9225_MonitorDisplay::print(int x, int y, const char *text, Color col
     tft.drawText(x, currentLine, text, COLOR_GREENYELLOW);
     
 }
+
+void TFT_ILI9225_MonitorDisplay::drawBitmapScreen() {
+
+    // from example code.
+
+    static const unsigned char PROGMEM adafruit_icon[] = { 
+        B00000000, B11000000,
+        B00000001, B11000000,
+        B00000001, B11000000,
+        B00000011, B11100000,
+        B11110011, B11100000,
+        B11111110, B11111000,
+        B01111110, B11111111,
+        B00110011, B10011111,
+        B00011111, B11111100,
+        B00001101, B01110000,
+        B00011011, B10100000,
+        B00111111, B11100000,
+        B00111111, B11110000,
+        B01111100, B11110000,
+        B01110000, B01110000,
+        B00000000, B00110000 
+    };
+
+    int ADAFRUIT_LOGO_HEIGHT = 16;
+    int ADAFRUIT_LOGO_WIDTH = 16;
+    uint16_t cCount = random(0xFFFF);    
+
+   for(int y = 0; y < 320; y += 20) {
+        for(int x = 0; x < 240; x += 20) {
+            if(cCount >= 0xFFFF)
+                cCount = 0;
+            else            
+                tft.drawBitmap(x, y, adafruit_icon, 16, 16, cCount);
+      
+        cCount = random(0xFFFF);
+        }
+    }
+
+}
+
+void TFT_ILI9225_MonitorDisplay::drawWelcomeText() {
+    tft.setFont(Terminal12x16);    
+    tft.setBackgroundColor(COLOR_WHITE);
+    tft.drawText(20, 65, "! W E L C O M E !", COLOR_WHITE);
+    tft.drawText(20, 85, "! W E L C O M E !", COLOR_WHITE);
+    tft.drawText(20, 75, "! W E L C O M E !", COLOR_BLACK);
+}
+
