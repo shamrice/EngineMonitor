@@ -3,7 +3,6 @@
 
 #include "MonitorDisplay.h"
 #include "SPI.h"
-//#include "ILI9225_t3.h"
 #include "TFT_22_ILI9225.h"
 
 class TFT_ILI9225_MonitorDisplay : public MonitorDisplay {
@@ -24,8 +23,7 @@ class TFT_ILI9225_MonitorDisplay : public MonitorDisplay {
 
     private:
         TFT_ILI9225_MonitorDisplay();
-        int currentLine;
-        //ILI9225_t3 tft = ILI9225_t3(TFT_CS, TFT_RS, TFT_RST, TFT_MOSI, TFT_CLK, TFT_MISO, TFT_LED);
+        int currentLine;        
         TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_LED, TFT_BRIGHTNESS);
 
 
