@@ -20,6 +20,6 @@ void TestTemperatureSensor::refresh() {
     logMessage += " refreshCount=";
     logMessage += refreshCount;
 
-    SerialLogger::getInstance().log(LogLevel::INFO, "TestTemperatureSensor", logMessage);
+    //SerialLogger::getInstance().log(LogLevel::INFO, "TestTemperatureSensor", logMessage);
     
 }

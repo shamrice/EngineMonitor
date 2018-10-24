@@ -18,6 +18,7 @@ class MonitorCore {
 
         void refreshSensorValues();
         void displaySensorValues();
+        void readInput();
 
     private:
         MonitorCore();
