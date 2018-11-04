@@ -17,16 +17,7 @@ MonitorCore::MonitorCore() {
     pinMode(ConfigurationValues::INPUT_DOWN_PIN, INPUT);
     pinMode(ConfigurationValues::INPUT_BUTTON_DOWN_PIN, INPUT);
 
-    /* test boot up screen */
-    /*
-    TFT_ILI9225_MonitorDisplay::getInstance().drawBitmapScreen();
-    TFT_ILI9225_MonitorDisplay::getInstance().drawWelcomeText();
-    delay(1500);
-    TFT_ILI9225_MonitorDisplay::getInstance().clearScreen();
-    TFT_ILI9225_MonitorDisplay::getInstance().drawBitmapScreen();
-    */
-
-   TFT_ILI9225_MonitorDisplay::getInstance().setScreen(Screen::SENSOR);
+    TFT_ILI9225_MonitorDisplay::getInstance().setScreen(Screen::SENSOR);
 }
 
 void MonitorCore::refreshSensorValues() {
@@ -34,19 +25,9 @@ void MonitorCore::refreshSensorValues() {
 }
 
 void MonitorCore::displayScreen() {
-    //SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore", "Displaying sensor values to screen.");
-
-    //int tempSensorValue = sensorManager.getSensorValue(SensorType::TEMPERATURE);
-	//int oilSensorValue = sensorManager.getSensorValue(SensorType::OIL_PRESSURE);
-    
-    //TFT_ILI9225_MonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
-    //TFT_ILI9225_MonitorDisplay::getInstance().printTimeScreen(clockTime.getDateTime());
-
     State state(sensorManager, clockTime.getDateTime());
     TFT_ILI9225_MonitorDisplay::getInstance().displayCurrentScreen(state);
     clockTime.logCurrentTime();
-
-
 }
 
 void MonitorCore::readInput() {
