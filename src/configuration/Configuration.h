@@ -21,6 +21,7 @@ class Configuration {
         SensorManager getSensorManager();
 
     private:
+        void configureTime();
         SensorManager sensorManager;
 
 };

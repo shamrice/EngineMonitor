@@ -40,3 +40,7 @@ int Configuration::getPinForSensor(SensorType sensorType) {
 SensorManager Configuration::getSensorManager() {
     return sensorManager;
 }
+
+void Configuration::configureTime() {
+
+}

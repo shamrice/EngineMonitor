@@ -25,19 +25,26 @@ MonitorCore::MonitorCore() {
     TFT_ILI9225_MonitorDisplay::getInstance().clearScreen();
     TFT_ILI9225_MonitorDisplay::getInstance().drawBitmapScreen();
     */
+
+   TFT_ILI9225_MonitorDisplay::getInstance().setScreen(Screen::SENSOR);
 }
 
 void MonitorCore::refreshSensorValues() {
     sensorManager.refreshSensorValues();
 }
 
-void MonitorCore::displaySensorValues() {
+void MonitorCore::displayScreen() {
     //SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore", "Displaying sensor values to screen.");
 
-    int tempSensorValue = sensorManager.getSensorValue(SensorType::TEMPERATURE);
-	int oilSensorValue = sensorManager.getSensorValue(SensorType::OIL_PRESSURE);
+    //int tempSensorValue = sensorManager.getSensorValue(SensorType::TEMPERATURE);
+	//int oilSensorValue = sensorManager.getSensorValue(SensorType::OIL_PRESSURE);
     
-    TFT_ILI9225_MonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
+    //TFT_ILI9225_MonitorDisplay::getInstance().printSensorScreen(tempSensorValue, oilSensorValue);
+    //TFT_ILI9225_MonitorDisplay::getInstance().printTimeScreen(clockTime.getDateTime());
+
+    State state(sensorManager, clockTime.getDateTime());
+    TFT_ILI9225_MonitorDisplay::getInstance().displayCurrentScreen(state);
+    clockTime.logCurrentTime();
 
 
 }
@@ -56,6 +63,14 @@ void MonitorCore::readInput() {
         digitalWrite(ConfigurationValues::EXTERNAL_TEST_LED_PIN, LOW);
     }
 
+    if (left == 1) {
+        TFT_ILI9225_MonitorDisplay::getInstance().setScreen(Screen::SENSOR);
+    }
+
+    if (right == 1) {
+        TFT_ILI9225_MonitorDisplay::getInstance().setScreen(Screen::TIME);
+    }
+
     String logText = "LEFT=";
     logText += left;
     logText += " RIGHT=";
@@ -67,5 +82,5 @@ void MonitorCore::readInput() {
     logText += " BUTTON=";
     logText += button;
 
-    SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore::readInput()", logText);
+    //SerialLogger::getInstance().log(LogLevel::DEBUG, "MonitorCore::readInput()", logText);
 }

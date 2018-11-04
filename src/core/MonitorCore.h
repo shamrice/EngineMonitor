@@ -3,6 +3,7 @@
 
 #include "WProgram.h"
 #include "configuration/Configuration.h"
+#include "../time/ClockTime.h"
 #include <string>
 
 class MonitorCore {
@@ -17,12 +18,13 @@ class MonitorCore {
         void operator=(MonitorCore const&) = delete;
 
         void refreshSensorValues();
-        void displaySensorValues();
+        void displayScreen();
         void readInput();
 
     private:
         MonitorCore();
         SensorManager sensorManager;
+        ClockTime clockTime;
         Configuration configuration;
     
 

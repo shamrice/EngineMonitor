@@ -6,14 +6,15 @@ ApplicationServices::ApplicationServices() {
 
 void ApplicationServices::run() {
     
-    monitorCore.displaySensorValues();      
+    monitorCore.displayScreen();      
     int refreshFrame = 0;
 
     while (true) {
 
         //manage how often display is drawn for refrsh.
-        if (refreshFrame > configuration.getDisplayRefreshFrequency()) {                        
-            monitorCore.displaySensorValues();      
+        if (refreshFrame > configuration.getDisplayRefreshFrequency()) {    
+                          
+            monitorCore.displayScreen();      
             refreshFrame = 0;
         }
 

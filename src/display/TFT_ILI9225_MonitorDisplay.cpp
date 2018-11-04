@@ -9,6 +9,21 @@ TFT_ILI9225_MonitorDisplay::TFT_ILI9225_MonitorDisplay() {
     currentLine = 1;
 }
 
+void TFT_ILI9225_MonitorDisplay::displayCurrentScreen(State state) {
+    switch (currentScreen) {
+        case SENSOR:
+            printSensorScreen(
+                state.getSensorManager().getSensorValue(SensorType::TEMPERATURE), 
+                state.getSensorManager().getSensorValue(SensorType::OIL_PRESSURE)
+            );
+            break;
+
+        default:
+            //ClockTime clockTime;
+            printTimeScreen(state.getDateTime());
+    }
+}
+
 void TFT_ILI9225_MonitorDisplay::clearScreen() {
     tft.clear();
 }
@@ -84,6 +99,14 @@ void TFT_ILI9225_MonitorDisplay::printSensorScreen(int tempSensorValue, int oilS
         tft.drawText(20, 120, oilSensorValueStr, COLOR_RED);
     }  
 
+}
+
+void TFT_ILI9225_MonitorDisplay::printTimeScreen(DateTime dateTime) {
+        
+    tft.setFont(Trebuchet_MS16x21);
+    tft.setBackgroundColor(COLOR_BLACK);
+    tft.drawText(40, 40, dateTime.getDateString(), COLOR_GREEN);
+    tft.drawText(60, 90, dateTime.getTimeString(), COLOR_GREEN);
 }
 
 void TFT_ILI9225_MonitorDisplay::print(int x, int y, const char *text, Color color) {
